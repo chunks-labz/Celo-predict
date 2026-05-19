@@ -78,9 +78,9 @@ export default function MiniPayDetection() {
 
   // Show MiniPay badge when detected
   return (
-    <div className="fixed bottom-4 right-4 z-40 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg flex items-center gap-2">
-      <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
-      MiniPay Ready
+    <div className="fixed bottom-4 right-4 z-40 bg-slate-900/80 backdrop-blur-xl border border-emerald-500/30 text-white px-4 py-2 rounded-2xl text-xs font-black uppercase tracking-widest shadow-xl shadow-emerald-500/10 flex items-center gap-2">
+      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
+      MiniPay Native
     </div>
   );
 }

@@ -141,7 +141,7 @@ export default function Header() {
               {/* Left Side - Brand Name */}
               <Link href="/" className="flex-shrink-0">
                 <span className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
-                  CeloPredict
+                  Predinex
                 </span>
               </Link>
 
@@ -518,7 +518,7 @@ export default function Header() {
                         style={{ mixBlendMode: 'lighten', background: 'transparent' }}
                       />
                       <span className="text-lg font-bold bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
-                        CeloPredict
+                        Predinex
                       </span>
                     </Link>
                   </div>
