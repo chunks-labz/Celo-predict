@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     images: ["/twitter-cover.png"],
   },
   other: {
-    "talentapp:project_verification": "817ec6b930d3bd4fa56d8fc11bad62e970ab22ed3a8adbc46a2793841c2530be8aebd617edc16f88a09d3b51c24a362b54535d0708d079ad497d0cf4951e1225",
+    "talentapp:project_verification": "67a035441b296ed90b5d5a3f40a3e445bc2aa8107cdd5ab211a62309ae4070d3e9d52c51bfdc78bd3b6e08a945fc4ec1e91afbc43f4a1d2c2a662f5615287a66",
   },
 };
 
