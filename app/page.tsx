@@ -551,7 +551,7 @@ export default function HomePage() {
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">
               <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-                Why Choose CeloPredict?
+                Why Choose Predinex?
               </span>
             </h2>
             <p className="text-sm sm:text-base text-gray-400 max-w-3xl mx-auto">
