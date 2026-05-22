@@ -19,18 +19,18 @@ export default function ProtocolHealth() {
     setLastCheck(new Date().toLocaleTimeString());
   }, [gasPrice]);
 
-  const gasGwei = gasPrice ? Math.floor(Number(formatUnits(gasPrice, 9))) : 0;
+  const gasGwei = gasPrice ? Number(formatUnits(gasPrice, 9)) : 0;
   
   // Logic for health status based on gas and connectivity
   const getStatusColor = () => {
     if (gasGwei > 300) return 'text-orange-400';
-    if (gasGwei > 0) return 'text-emerald-400';
+    if (gasGwei > 0 || gasPrice) return 'text-emerald-400';
     return 'text-slate-400';
   };
 
   const getStatusText = () => {
     if (gasGwei > 300) return 'CONGESTED';
-    if (gasGwei > 0) return 'OPERATIONAL';
+    if (gasGwei > 0 || gasPrice) return 'OPERATIONAL';
     return 'CONNECTING...';
   };
 
@@ -69,7 +69,7 @@ export default function ProtocolHealth() {
             <span className="text-[10px] font-bold uppercase tracking-wider">NETWORK LOAD</span>
           </div>
           <p className="text-xl font-black text-white">
-            {gasGwei} <span className="text-[10px] font-bold text-slate-500">GWEI</span>
+            {gasGwei > 0 ? gasGwei.toFixed(3) : '0.000'} <span className="text-[10px] font-bold text-slate-500">GWEI</span>
           </p>
         </div>
 
