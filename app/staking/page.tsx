@@ -498,7 +498,7 @@ export default function StakingPage() {
               </div>
               <h4 className="text-lg font-semibold text-white mb-2">3. Revenue Share</h4>
               <p className="text-gray-300 text-sm">
-                Monthly distribution of platform fees (PRIX + BNB) proportional to your tier and stake size.
+                Monthly distribution of platform fees (PRIX + CELO) proportional to your tier and stake size.
               </p>
             </div>
             <div className="text-center">
@@ -519,7 +519,7 @@ export default function StakingPage() {
               <li>• <strong>Revenue Share:</strong> Distributed monthly on the 1st, claim when available</li>
               <li>• <strong>Unstaking:</strong> Only possible after lock period expires, includes all unclaimed rewards</li>
               <li>• <strong>Early Exit:</strong> Unstaking before expiry forfeits all pending rewards</li>
-              <li>• <strong>Gas Fees:</strong> All transactions require BNB for gas on Somnia Network</li>
+              <li>• <strong>Gas Fees:</strong> All transactions require CELO for gas on Celo</li>
             </ul>
           </div>
         </motion.div>

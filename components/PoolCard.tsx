@@ -425,7 +425,7 @@ export const PoolCardNFT = ({ pool, onClick }: PoolCardProps) => {
             <div className="flex items-center justify-between">
               <span className="text-[9px] text-slate-400 uppercase tracking-wider font-medium">Volume</span>
               <span className="text-[9px] font-bold text-white font-mono">
-                {totalVolume.toFixed(2)} {pool.usesPrix ? "PRIX" : "tBNB"}
+                {totalVolume.toFixed(2)} {pool.usesPrix ? "PRIX" : "CELO"}
               </span>
             </div>
             {fillPercentage > 0 && (

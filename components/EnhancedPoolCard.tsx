@@ -743,7 +743,7 @@ export default function EnhancedPoolCard({
               
               // Show precise number to avoid confusion
               return totalFilled.toFixed(2);
-            })()} {pool.usesPrix ? 'PRIX' : 'tBNB'} Filled
+            })()} {pool.usesPrix ? 'PRIX' : 'CELO'} Filled
           </span>
           <span>
             {(() => {
@@ -773,7 +773,7 @@ export default function EnhancedPoolCard({
               
               // Show precise number to avoid confusion and reverted transactions
               return totalCapacity.toFixed(2);
-            })()} {pool.usesPrix ? 'PRIX' : 'tBNB'} Capacity
+            })()} {pool.usesPrix ? 'PRIX' : 'CELO'} Capacity
           </span>
         </div>
       </div>

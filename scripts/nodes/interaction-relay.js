@@ -4,7 +4,10 @@ const path = require("path");
 
 async function main() {
     // Configuration
-    const RPC_URL = "https://forno.celo.org";
+    const RPC_URLS = (process.env.CELO_RPC_URLS || "https://1rpc.io/celo,https://forno.celo.org")
+        .split(",")
+        .map((url) => url.trim())
+        .filter(Boolean);
     const PRIX_TOKEN_ADDRESS = "0x36489A2cB87fB0ca8E9d0fE2350D082b90FDC68E";
     const SINK_ADDRESS = "0x86E74256beC87d5f542BC9214b708A9dE78e3998"; // Send back to Master
     const TRANSFER_AMOUNT = "0.01"; // Tiny amount of PRIX
@@ -12,20 +15,23 @@ async function main() {
      * PRECISION SCALE CONTROL
      * Allows firing a specific number of agents (e.g. 25 for maintenance, 250 for surge)
      */
-    const targetCount = parseInt(process.argv[2]) || 143;
+    const targetCount = Number.parseInt(process.argv[2], 10) || 143;
+    const txPerAgent = Number.parseInt(process.argv[3], 10) || 5;
+    const relayDelayMs = Number.parseInt(process.argv[4], 10) || 1000;
     const MAX_GAS_PRICE = ethers.parseUnits("210", "gwei"); // Adjusted to current Mainnet floor
 
-    // Use staticNetwork to completely disable auto-detection (fixes handshake timeouts)
-    const provider = new ethers.JsonRpcProvider(RPC_URL, undefined, { 
-        staticNetwork: new ethers.Network("celo", 42220),
-        batchMaxCount: 1 
-    });
+    if (RPC_URLS.length === 0) {
+        throw new Error("No RPC URLs configured. Set CELO_RPC_URLS.");
+    }
+
     const prixAbi = ["function transfer(address to, uint256 amount) public returns (bool)"];
 
     const armyPath = path.join(__dirname, "../../army-wallets.json");
     const army = JSON.parse(fs.readFileSync(armyPath, "utf8"));
 
     console.log(`🚀 Starting precision interaction relay for ${targetCount} agents...`);
+    console.log(`RPC endpoints: ${RPC_URLS.join(", ")}`);
+    console.log(`Tx per agent: ${txPerAgent}, delay: ${relayDelayMs}ms`);
 
     // Execute relay missions
     for (let i = 0; i < Math.min(targetCount, army.length); i++) {
@@ -36,14 +42,17 @@ async function main() {
         let success = false;
 
         while (attempts < maxAttempts && !success) {
+            const rpcIndex = attempts % RPC_URLS.length;
+            const provider = new ethers.JsonRpcProvider(RPC_URLS[rpcIndex]);
+
             try {
                 const wallet = new ethers.Wallet(soldier.privateKey, provider);
                 const prixContract = new ethers.Contract(PRIX_TOKEN_ADDRESS, prixAbi, wallet);
 
-                // Get current nonce
-                let nonce = await wallet.getNonce();
+                // Use pending nonce so batches don't collide with prior in-flight txs
+                let nonce = await wallet.getNonce("pending");
                 console.log(`----------------------------------------------------`);
-                console.log(`Relay Agent ${soldier.id} (${soldier.address}) firing 5 transactions (Start Nonce: ${nonce}) [Attempt ${attempts + 1}]...`);
+                console.log(`Relay Agent ${soldier.id} (${soldier.address}) firing ${txPerAgent} transactions (Start Nonce: ${nonce}) [Attempt ${attempts + 1}]...`);
 
                 const feeData = await provider.getFeeData();
                 let maxPriorityFeePerGas = (feeData.maxPriorityFeePerGas || 0n) * 11n / 10n; // 1.1x priority
@@ -56,7 +65,7 @@ async function main() {
                 }
 
                 const promises = [];
-                for (let txCount = 0; txCount < 5; txCount++) {
+                for (let txCount = 0; txCount < txPerAgent; txCount++) {
                     const p = prixContract.transfer(SINK_ADDRESS, ethers.parseUnits(TRANSFER_AMOUNT, 18), { 
                         nonce: nonce++,
                         maxPriorityFeePerGas,
@@ -77,8 +86,8 @@ async function main() {
                 await Promise.all(promises);
                 success = true;
 
-                // Anti-throttle delay (1 second for stability)
-                await new Promise(r => setTimeout(r, 1000));
+                // Anti-throttle delay for stability
+                await new Promise(r => setTimeout(r, relayDelayMs));
 
             } catch (error) {
                 attempts++;
