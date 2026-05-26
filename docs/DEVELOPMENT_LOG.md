@@ -336,3 +336,10 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 42: Development Environment Tweaks
 - Set default dev server port option to 3000 inside `package.json` configurations.
 - Standardized setup.
+
+---
+
+## Update: docs: explain gas estimation strategy used by agent networks
+
+### Log Entry 43: Agent Strategy Documentation
+- Documented why fixed gas limits are used during surges in the relay scripts guide.
