@@ -281,3 +281,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 35: Reputation Calculation Fix
 - Fixed division by zero edge case when calculating success rates for brand-new users.
 - Standardized format.
+
+---
+
+## Update: style: refine font weights across dashboard statistics panels
+
+### Log Entry 36: Typography Adjustments
+- Changed numeric statistic labels from heavy black to bold (700) for a cleaner institutional look.
+- Adjusted sizes.
