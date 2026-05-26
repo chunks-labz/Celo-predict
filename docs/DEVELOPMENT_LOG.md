@@ -358,3 +358,10 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 45: Input Performance
 - Implemented a 200ms debounce timeout to search query inputs on `app/markets/page.tsx`.
 - Reduced filter recalculation lag.
+
+---
+
+## Update: fix: ensure decimals multiplier is applied to stake deposits
+
+### Log Entry 46: Decimals Multiplier Fix
+- Fixed stakes calculations to scale appropriately using 18 decimals on deposit inputs.
