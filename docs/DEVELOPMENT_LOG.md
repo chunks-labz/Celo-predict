@@ -18,3 +18,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 2: Formatting System Upgrade
 - Refactored currency formatters in `utils/formatters.ts` to support up to 6 decimal places for CELO.
 - Enhanced UI visibility of tiny transactions for sub-wallets.
+
+---
+
+## Update: fix: resolve potential undefined RPC endpoints in Wagmi configurations
+
+### Log Entry 3: Network Config Stability
+- Added strict null checks to `config/wagmi.ts` when loading network RPC endpoints.
+- Ensured the app falls back to forno.celo.org gracefully if custom env variables are missing.
