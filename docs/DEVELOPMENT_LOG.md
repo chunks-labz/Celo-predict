@@ -114,3 +114,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 14: Ethers Node Connection Patch
 - Explicitly defined Celo chain ID (42220) as a static Network object during JsonRpcProvider instantiation.
 - Prevented automatic eth_chainId lookup delays.
+
+---
+
+## Update: fix: implement resilient retry wrapper for RPC node query calls
+
+### Log Entry 15: Network Timeout Protection
+- Added a robust recursive retry loop to node scripts with a backoff delay.
+- Handled transient HTTP 504 and Cloudflare ETIMEDOUT errors gracefully.
