@@ -186,3 +186,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 23: Agent Credentials Documentation
 - Documented agent credentials and capability specifications in `data/agent-identity.json`.
 - Described decentralized oracle operations.
+
+---
+
+## Update: refactor: simplify conditional render structures on enhanced pool cards
+
+### Log Entry 24: Card Component Refactoring
+- Replaced nested ternary expressions with clean logical AND statements.
+- Improved overall readability of card actions.
