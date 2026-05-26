@@ -241,3 +241,11 @@ This document tracks the progression of development and performance updates depl
 
 ### Log Entry 30: Network Switch Assertion
 - Added automatic chain-assert hook to warn users if their wallet is connected to a network other than Celo Mainnet.
+
+---
+
+## Update: style: add premium border transition highlights to dashboard widgets
+
+### Log Entry 31: UI Animation Polish
+- Configured subtle border border transition from slate-800 to blue-500/30 on widget hover.
+- Added professional depth.
