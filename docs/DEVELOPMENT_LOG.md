@@ -50,3 +50,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 6: Mobile Integration Docs
 - Documented the `popstate` back-button hijack fix inside `docs/CELO_MINIPAY_INTEGRATION.md`.
 - Explained the route history stack push strategy for native Android back keys.
+
+---
+
+## Update: refactor: prune unused icon imports from page.tsx to reduce bundle size
+
+### Log Entry 7: Bundle Optimization
+- Cleaned up unused Heroicon imports in the homepage file.
+- Reduced chunk size of page bundle by approximately 4.2KB.
