@@ -34,3 +34,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 4: ABI Type Declarations
 - Updated `types/contracts.ts` to include the correct Factory contract event types.
 - Cleaned up manual type castings in frontend hooks.
+
+---
+
+## Update: style: adjust CTA button hover transitions for institutional branding
+
+### Log Entry 5: Frontend Polish
+- Added smooth CSS scale-up (scale-102) and active tap (scale-98) animations to the hero CTA buttons.
+- Aligned background gradients with the golden-emerald institutional color scheme.
