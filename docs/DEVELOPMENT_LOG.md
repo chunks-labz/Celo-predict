@@ -58,3 +58,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 7: Bundle Optimization
 - Cleaned up unused Heroicon imports in the homepage file.
 - Reduced chunk size of page bundle by approximately 4.2KB.
+
+---
+
+## Update: perf: optimize React rendering cycles in ProtocolHealth monitor
+
+### Log Entry 8: Component Perf Tuning
+- Wrapped ProtocolHealth's state update handler in React `useMemo`.
+- Prevented unnecessary refetch hooks on window focus when gas price is stable.
