@@ -122,3 +122,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 15: Network Timeout Protection
 - Added a robust recursive retry loop to node scripts with a backoff delay.
 - Handled transient HTTP 504 and Cloudflare ETIMEDOUT errors gracefully.
+
+---
+
+## Update: style: optimize mobile responsive layouts for MiniPay browser shell
+
+### Log Entry 16: Mobile UX Enhancements
+- Added customized padding classes to main container layout when viewport is under 375px.
+- Ensured no side-scroll bars are displayed in the Opera browser wrapper.
