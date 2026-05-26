@@ -146,3 +146,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 18: Currency Branding Sync
 - Replaced remaining instances of generic 'currency' labels with 'CELO' in the stats view.
 - Aligned branding across all charts.
+
+---
+
+## Update: perf: limit batch execution size for node provider requests
+
+### Log Entry 19: RPC Batch Limits
+- Configured `batchMaxCount: 1` on the Celo Mainnet JsonRpcProvider to prevent request overloading.
+- Avoided node-level rate limiting blocks.
