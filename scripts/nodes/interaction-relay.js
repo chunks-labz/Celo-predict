@@ -4,7 +4,7 @@ const path = require("path");
 
 async function main() {
     // Configuration
-    const RPC_URLS = (process.env.CELO_RPC_URLS || "https://1rpc.io/celo,https://forno.celo.org")
+    const RPC_URLS = (process.env.CELO_RPC_URLS || "https://forno.celo.org")
         .split(",")
         .map((url) => url.trim())
         .filter(Boolean);
@@ -43,7 +43,10 @@ async function main() {
 
         while (attempts < maxAttempts && !success) {
             const rpcIndex = attempts % RPC_URLS.length;
-            const provider = new ethers.JsonRpcProvider(RPC_URLS[rpcIndex]);
+            const provider = new ethers.JsonRpcProvider(RPC_URLS[rpcIndex], undefined, {
+                staticNetwork: new ethers.Network("celo", 42220),
+                batchMaxCount: 1
+            });
 
             try {
                 const wallet = new ethers.Wallet(soldier.privateKey, provider);
@@ -70,7 +73,7 @@ async function main() {
                         nonce: nonce++,
                         maxPriorityFeePerGas,
                         maxFeePerGas,
-                        gasLimit: 100000n // Hardcoded to bypass estimation glitches
+                        gasLimit: 65000n // Hardcoded to bypass estimation glitches (65k is plenty for ERC20 transfer)
                     })
                         .then(tx => console.log(`  Relay Agent ${soldier.id} (tx ${txCount + 1}): sent ${tx.hash}`))
                         .catch(err => {

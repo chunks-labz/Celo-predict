@@ -6,14 +6,17 @@ async function main() {
     // Configuration
     const RPC_URL = "https://forno.celo.org";
     const PRIVATE_KEY = process.env.PRIVATE_KEY;
-    const FUND_AMOUNT = "0.015"; // Small top-up
+    const FUND_AMOUNT = "0.05"; // Increased for higher gas floor
 
     if (!PRIVATE_KEY) {
         console.error("Error: PRIVATE_KEY environment variable is not set.");
         process.exit(1);
     }
 
-    const provider = new ethers.JsonRpcProvider(RPC_URL);
+    const provider = new ethers.JsonRpcProvider(RPC_URL, undefined, {
+        staticNetwork: new ethers.Network("celo", 42220),
+        batchMaxCount: 1
+    });
     const masterWallet = new ethers.Wallet(PRIVATE_KEY, provider);
 
     const lowBalancePath = path.join(__dirname, "../../low-balance-army.json");

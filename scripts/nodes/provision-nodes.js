@@ -6,7 +6,7 @@ async function main() {
     // Configuration
     const RPC_URL = "https://forno.celo.org";
     const PRIVATE_KEY = process.env.PRIVATE_KEY;
-    const FUND_AMOUNT = "1.0"; // High-Capacity Guerilla Fuel
+    const FUND_AMOUNT = "0.2"; // Adjusted to fit 50 CELO budget for 250 wallets
     const PRIX_TOKEN_ADDRESS = "0x36489A2cB87fB0ca8E9d0fE2350D082b90FDC68E";
     const PRIX_AMOUNT = "100.0"; // PRIX per wallet
     const MAX_GAS_PRICE = ethers.parseUnits("250", "gwei");
@@ -28,6 +28,19 @@ async function main() {
     const prixAbi = ["function transfer(address to, uint256 amount) public returns (bool)", "function balanceOf(address account) public view returns (uint256)"];
     const prixContract = new ethers.Contract(PRIX_TOKEN_ADDRESS, prixAbi, masterWallet);
 
+    // Helper for robust retries
+    async function retry(fn, maxRetries = 5, delay = 3000) {
+        for (let i = 0; i < maxRetries; i++) {
+            try {
+                return await fn();
+            } catch (error) {
+                console.warn(`    [Retry ${i + 1}/${maxRetries}] failed: ${error.message}. Retrying in ${delay}ms...`);
+                await new Promise(r => setTimeout(r, delay));
+            }
+        }
+        throw new Error(`Failed after ${maxRetries} attempts`);
+    }
+
     // Fixed High-Priority Fees for Mainnet Push
     const maxFeePerGas = MAX_GAS_PRICE;
     const maxPriorityFeePerGas = ethers.parseUnits("2", "gwei");
@@ -37,14 +50,14 @@ async function main() {
 
     console.log(`Starting surgical funding for top ${FUND_LIMIT} agents...`);
 
-    let nonce = await masterWallet.getNonce();
+    let nonce = await retry(() => masterWallet.getNonce());
     let fundedCount = 0;
 
     for (const soldier of army) {
         if (fundedCount >= FUND_LIMIT) break;
 
         // Simple skip if already funded (check CELO balance)
-        const soldierBalance = await provider.getBalance(soldier.address);
+        const soldierBalance = await retry(() => provider.getBalance(soldier.address));
         if (soldierBalance >= ethers.parseEther(FUND_AMOUNT)) {
             console.log(`Relay Agent ${soldier.id} already has high-capacity fuel. Skipping.`);
             fundedCount++;
@@ -56,36 +69,49 @@ async function main() {
 
         try {
             // 1. Send CELO
-            const celoTx = await masterWallet.sendTransaction({
+            const celoTx = await retry(() => masterWallet.sendTransaction({
                 to: soldier.address,
                 value: ethers.parseEther(FUND_AMOUNT),
                 nonce: nonce++,
                 maxFeePerGas,
                 maxPriorityFeePerGas,
                 gasLimit: 21000n
-            });
+            }));
             console.log(`  CELO Transaction sent: ${celoTx.hash}`);
 
-            // 2. Send PRIX
-            const prixTx = await prixContract.transfer(soldier.address, ethers.parseUnits(PRIX_AMOUNT, 18), {
-                nonce: nonce++,
-                maxFeePerGas,
-                maxPriorityFeePerGas,
-                gasLimit: 100000n
-            });
-            console.log(`  PRIX Transaction sent: ${prixTx.hash}`);
+            // 2. Send PRIX (only if needed)
+            const prixBalance = await retry(() => prixContract.balanceOf(soldier.address));
+            let prixTx = null;
+            if (prixBalance < ethers.parseUnits("1.0", 18)) {
+                prixTx = await retry(() => prixContract.transfer(soldier.address, ethers.parseUnits(PRIX_AMOUNT, 18), {
+                    nonce: nonce++,
+                    maxFeePerGas,
+                    maxPriorityFeePerGas,
+                    gasLimit: 100000n
+                }));
+                console.log(`  PRIX Transaction sent: ${prixTx.hash}`);
+            } else {
+                console.log(`  PRIX balance sufficient (${ethers.formatUnits(prixBalance, 18)} PRIX). Skipping PRIX send.`);
+            }
             
             fundedCount++;
 
-            // To avoid overloading the RPC's mempool/nonce limit, we wait every 50 soldiers
-            if (soldier.id % 50 === 0) {
+            // Wait occasionally to avoid RPC rate limits
+            if (fundedCount % 20 === 0) {
                 console.log("  Waiting for batch confirmation...");
-                await prixTx.wait();
+                if (prixTx) {
+                    await retry(() => prixTx.wait());
+                } else {
+                    await retry(() => celoTx.wait());
+                }
             }
+
+            // Throttle delay to avoid Cloudflare rate limiting
+            await new Promise(r => setTimeout(r, 400));
         } catch (error) {
             console.error(`  Failed to fund ${soldier.address}:`, error.message);
             // Refresh nonce if there's an error
-            nonce = await masterWallet.getNonce();
+            nonce = await retry(() => masterWallet.getNonce());
         }
     }
 

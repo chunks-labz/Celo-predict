@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 async function main() {
-    const RPC_URLS = (process.env.CELO_RPC_URLS || "https://1rpc.io/celo,https://forno.celo.org")
+    const RPC_URLS = (process.env.CELO_RPC_URLS || "https://forno.celo.org")
         .split(",")
         .map((url) => url.trim())
         .filter(Boolean);
