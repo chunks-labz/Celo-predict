@@ -386,3 +386,11 @@ This document tracks the progression of development and performance updates depl
 
 ### Log Entry 49: API Docs Update
 - Added detailed JSON response schemas for public statistics endpoints to `README.md`.
+
+---
+
+## Update: refactor: optimize imports ordering on layout and app content wrappers
+
+### Log Entry 50: Code Hygiene Refinement
+- Organized React, NextJS, utility, and component imports across main files.
+- Aligned with styling guidelines.
