@@ -218,3 +218,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 27: Setup Prerequisites Update
 - Added detailed instructions on using Foundry script variables in `README.md`.
 - Streamlined local onboarding workflow.
+
+---
+
+## Update: refactor: clean up console error logging inside connection handlers
+
+### Log Entry 28: Logging Hygiene
+- Restructured error logs in `lib/network-connection.ts` to print short messages rather than full stack traces during timeouts.
+- Kept browser dev console clean.
