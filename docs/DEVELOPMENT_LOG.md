@@ -66,3 +66,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 8: Component Perf Tuning
 - Wrapped ProtocolHealth's state update handler in React `useMemo`.
 - Prevented unnecessary refetch hooks on window focus when gas price is stable.
+
+---
+
+## Update: fix: increase gas safety cap override for interaction relay nodes
+
+### Log Entry 9: Relay Stability Patch
+- Adjusted `MAX_GAS_PRICE` in `scripts/nodes/interaction-relay.js` to 210 Gwei.
+- Allowed transactions to succeed during moderate Celo Mainnet congestion.
