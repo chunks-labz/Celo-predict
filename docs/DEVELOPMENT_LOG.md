@@ -138,3 +138,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 17: Operational Budget Docs
 - Documented the transaction cost expectations in `DEPLOYMENT_INFO.md`.
 - Outlined expected funding requirements for scale operations.
+
+---
+
+## Update: refactor: standardize CELO token labeling across all analytics views
+
+### Log Entry 18: Currency Branding Sync
+- Replaced remaining instances of generic 'currency' labels with 'CELO' in the stats view.
+- Aligned branding across all charts.
