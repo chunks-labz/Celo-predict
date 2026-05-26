@@ -98,3 +98,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 12: Gas Formatting Cleanups
 - Standardized gas fee conversion using `viem`'s native helper instead of custom division.
 - Prevented floating point precision loss on ultra-low gwei networks.
+
+---
+
+## Update: perf: implement local memory cache for recent bets side lane
+
+### Log Entry 13: Local Caching Optimization
+- Added temporary 5-second in-memory throttle to `RecentBetsLane.tsx` api fetches.
+- Saved duplicate HTTP requests when navigating tabs.
