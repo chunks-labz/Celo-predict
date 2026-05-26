@@ -265,3 +265,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 33: Troubleshooting Guide
 - Documented common wallet connection error codes inside `README.md`.
 - Explained solutions for MiniPay injection failures.
+
+---
+
+## Update: refactor: extract status badge rendering logic to separate component
+
+### Log Entry 34: Component Decoupling
+- Created a reusable `PoolStatusBanner` component from inline code in `EnhancedPoolCard.tsx`.
+- Simplified parent file structure.
