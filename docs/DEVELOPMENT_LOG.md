@@ -170,3 +170,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 21: Accessibility Upgrades
 - Updated text color from `slate-500` to `slate-400` on smaller card details.
 - Aligned with WCAG 2.1 contrast standards.
+
+---
+
+## Update: chore: define vercel redirect pathways for nextjs api routing
+
+### Log Entry 22: Vercel Config Refinement
+- Adjusted route routing structures in `vercel.json` to handle backend CORS headers.
+- Enabled direct external queries.
