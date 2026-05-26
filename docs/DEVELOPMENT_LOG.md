@@ -372,3 +372,10 @@ This document tracks the progression of development and performance updates depl
 
 ### Log Entry 47: Design Sync
 - Updated governance status tags to map to standard emerald-400 and slate-400 color schemes.
+
+---
+
+## Update: chore: add linting rules for unused TypeScript interfaces
+
+### Log Entry 48: TypeScript Linter Updates
+- Configured tsconfig rules to emit warnings on unused types or interface definitions.
