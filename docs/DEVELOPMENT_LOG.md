@@ -82,3 +82,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 10: Category Filter Polish
 - Implemented subtle box-shadow glow using `shadow-cyan-500/25` for active filter button state.
 - Improved overall visibility of current category categories on dark mode.
+
+---
+
+## Update: docs: update manual verification guide link references on Celoscan
+
+### Log Entry 11: Verification Docs Update
+- Updated the Explorer verification URLs in `VERIFICATION_GUIDE.md` to point to CeloScan V2.
+- Added constructor arguments instruction guides.
