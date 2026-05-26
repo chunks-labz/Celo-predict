@@ -328,3 +328,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 41: Responsive Grid Improvements
 - Increased gap sizes in the features grid on large monitors (1280px and above).
 - Enhanced layout breathing room.
+
+---
+
+## Update: chore: configure local nextjs dev server to run on port 3000 explicitly
+
+### Log Entry 42: Development Environment Tweaks
+- Set default dev server port option to 3000 inside `package.json` configurations.
+- Standardized setup.
