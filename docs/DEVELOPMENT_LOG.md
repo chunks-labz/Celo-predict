@@ -296,3 +296,11 @@ This document tracks the progression of development and performance updates depl
 
 ### Log Entry 37: Staking Documentation
 - Documented token lock times and staking rewards calculation metrics in `DEPLOYMENT_INFO.md`.
+
+---
+
+## Update: refactor: leverage standard error classes in pool contract services
+
+### Log Entry 38: Error Handling Standardization
+- Migrated custom error structures to standard JavaScript Error inheritances in `services/poolContractService.ts`.
+- Unified reporting.
