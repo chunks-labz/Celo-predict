@@ -234,3 +234,10 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 39: Cache Infrastructure
 - Implemented lightweight localStorage cache helper for static contract metadata.
 - Reduced total RPC calls by 12% on return visits.
+
+---
+
+## Update: fix: ensure correct network chain ID assertion on wallet connect
+
+### Log Entry 30: Network Switch Assertion
+- Added automatic chain-assert hook to warn users if their wallet is connected to a network other than Celo Mainnet.
