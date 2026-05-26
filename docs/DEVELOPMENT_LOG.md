@@ -210,3 +210,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 26: Custom Scrollbar Styles
 - Added webkit scrollbar overrides to `globals.css` with a sleek, dark slate design.
 - Improved aesthetic continuity.
+
+---
+
+## Update: docs: update setup prerequisites for building smart contracts locally
+
+### Log Entry 27: Setup Prerequisites Update
+- Added detailed instructions on using Foundry script variables in `README.md`.
+- Streamlined local onboarding workflow.
