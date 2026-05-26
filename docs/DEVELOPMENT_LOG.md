@@ -257,3 +257,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 32: Package Upgrades
 - Upgraded dev dependencies in `package.json` to resolve minor security alerts.
 - Verified local dev environment compiles successfully.
+
+---
+
+## Update: docs: append troubleshooting sections for wallet connect issues
+
+### Log Entry 33: Troubleshooting Guide
+- Documented common wallet connection error codes inside `README.md`.
+- Explained solutions for MiniPay injection failures.
