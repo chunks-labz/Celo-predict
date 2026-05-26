@@ -194,3 +194,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 24: Card Component Refactoring
 - Replaced nested ternary expressions with clean logical AND statements.
 - Improved overall readability of card actions.
+
+---
+
+## Update: fix: add checks to prevent zero-address staking errors in UI
+
+### Log Entry 25: Staking Validation Fix
+- Implemented client-side check to disable the Staking deposit buttons if user address is not loaded.
+- Prevented raw EVM transaction reverts.
