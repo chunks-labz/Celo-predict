@@ -106,3 +106,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 13: Local Caching Optimization
 - Added temporary 5-second in-memory throttle to `RecentBetsLane.tsx` api fetches.
 - Saved duplicate HTTP requests when navigating tabs.
+
+---
+
+## Update: chore: configure static network definition in node provider instances
+
+### Log Entry 14: Ethers Node Connection Patch
+- Explicitly defined Celo chain ID (42220) as a static Network object during JsonRpcProvider instantiation.
+- Prevented automatic eth_chainId lookup delays.
