@@ -178,3 +178,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 22: Vercel Config Refinement
 - Adjusted route routing structures in `vercel.json` to handle backend CORS headers.
 - Enabled direct external queries.
+
+---
+
+## Update: docs: detail active registration status of Predinex AI Oracle Agent
+
+### Log Entry 23: Agent Credentials Documentation
+- Documented agent credentials and capability specifications in `data/agent-identity.json`.
+- Described decentralized oracle operations.
