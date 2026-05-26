@@ -162,3 +162,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 20: Hydration Fix
 - Wrapped dynamic relative date string generation inside a `useEffect` hook.
 - Resolved React warning regarding server/client HTML string differences.
+
+---
+
+## Update: style: improve text contrast ratio for secondary metadata labels
+
+### Log Entry 21: Accessibility Upgrades
+- Updated text color from `slate-500` to `slate-400` on smaller card details.
+- Aligned with WCAG 2.1 contrast standards.
