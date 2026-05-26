@@ -365,3 +365,10 @@ This document tracks the progression of development and performance updates depl
 
 ### Log Entry 46: Decimals Multiplier Fix
 - Fixed stakes calculations to scale appropriately using 18 decimals on deposit inputs.
+
+---
+
+## Update: style: align color tokens of governance statuses with status standards
+
+### Log Entry 47: Design Sync
+- Updated governance status tags to map to standard emerald-400 and slate-400 color schemes.
