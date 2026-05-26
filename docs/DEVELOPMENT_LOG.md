@@ -379,3 +379,10 @@ This document tracks the progression of development and performance updates depl
 
 ### Log Entry 48: TypeScript Linter Updates
 - Configured tsconfig rules to emit warnings on unused types or interface definitions.
+
+---
+
+## Update: docs: document API structure of public platform statistics endpoints
+
+### Log Entry 49: API Docs Update
+- Added detailed JSON response schemas for public statistics endpoints to `README.md`.
