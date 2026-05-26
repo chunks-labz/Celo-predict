@@ -90,3 +90,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 11: Verification Docs Update
 - Updated the Explorer verification URLs in `VERIFICATION_GUIDE.md` to point to CeloScan V2.
 - Added constructor arguments instruction guides.
+
+---
+
+## Update: refactor: migrate gas calculations in hooks to use viem formatUnits
+
+### Log Entry 12: Gas Formatting Cleanups
+- Standardized gas fee conversion using `viem`'s native helper instead of custom division.
+- Prevented floating point precision loss on ultra-low gwei networks.
