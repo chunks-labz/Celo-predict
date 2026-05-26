@@ -42,3 +42,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 5: Frontend Polish
 - Added smooth CSS scale-up (scale-102) and active tap (scale-98) animations to the hero CTA buttons.
 - Aligned background gradients with the golden-emerald institutional color scheme.
+
+---
+
+## Update: docs: document MiniPay native back button popstate handling mechanism
+
+### Log Entry 6: Mobile Integration Docs
+- Documented the `popstate` back-button hijack fix inside `docs/CELO_MINIPAY_INTEGRATION.md`.
+- Explained the route history stack push strategy for native Android back keys.
