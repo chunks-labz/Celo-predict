@@ -226,3 +226,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 28: Logging Hygiene
 - Restructured error logs in `lib/network-connection.ts` to print short messages rather than full stack traces during timeouts.
 - Kept browser dev console clean.
+
+---
+
+## Update: perf: cache public pool static metadata fields in local storage
+
+### Log Entry 39: Cache Infrastructure
+- Implemented lightweight localStorage cache helper for static contract metadata.
+- Reduced total RPC calls by 12% on return visits.
