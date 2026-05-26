@@ -130,3 +130,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 16: Mobile UX Enhancements
 - Added customized padding classes to main container layout when viewport is under 375px.
 - Ensured no side-scroll bars are displayed in the Opera browser wrapper.
+
+---
+
+## Update: docs: document deployment budget parameters on Celo Mainnet
+
+### Log Entry 17: Operational Budget Docs
+- Documented the transaction cost expectations in `DEPLOYMENT_INFO.md`.
+- Outlined expected funding requirements for scale operations.
