@@ -202,3 +202,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 25: Staking Validation Fix
 - Implemented client-side check to disable the Staking deposit buttons if user address is not loaded.
 - Prevented raw EVM transaction reverts.
+
+---
+
+## Update: style: add custom scrollbar styles for chrome and webkit browsers
+
+### Log Entry 26: Custom Scrollbar Styles
+- Added webkit scrollbar overrides to `globals.css` with a sleek, dark slate design.
+- Improved aesthetic continuity.
