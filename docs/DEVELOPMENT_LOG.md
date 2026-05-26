@@ -350,3 +350,11 @@ This document tracks the progression of development and performance updates depl
 
 ### Log Entry 44: Code Refactoring
 - Simplified mapping operations in `services/realAnalyticsService.ts` to reduce iteration overhead.
+
+---
+
+## Update: perf: debounce search query changes in the markets page filter
+
+### Log Entry 45: Input Performance
+- Implemented a 200ms debounce timeout to search query inputs on `app/markets/page.tsx`.
+- Reduced filter recalculation lag.
