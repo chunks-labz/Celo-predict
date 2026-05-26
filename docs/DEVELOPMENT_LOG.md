@@ -273,3 +273,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 34: Component Decoupling
 - Created a reusable `PoolStatusBanner` component from inline code in `EnhancedPoolCard.tsx`.
 - Simplified parent file structure.
+
+---
+
+## Update: fix: adjust decimals precision in reputation score calculations
+
+### Log Entry 35: Reputation Calculation Fix
+- Fixed division by zero edge case when calculating success rates for brand-new users.
+- Standardized format.
