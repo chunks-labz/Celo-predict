@@ -304,3 +304,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 38: Error Handling Standardization
 - Migrated custom error structures to standard JavaScript Error inheritances in `services/poolContractService.ts`.
 - Unified reporting.
+
+---
+
+## Update: perf: lazy load heavy chart assets on live analytics views
+
+### Log Entry 39: Page Speed Performance
+- Modified `AnalyticsDashboard` to lazy load interactive charts on viewport entry.
+- Saved bandwidth.
