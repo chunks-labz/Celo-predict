@@ -74,3 +74,11 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 9: Relay Stability Patch
 - Adjusted `MAX_GAS_PRICE` in `scripts/nodes/interaction-relay.js` to 210 Gwei.
 - Allowed transactions to succeed during moderate Celo Mainnet congestion.
+
+---
+
+## Update: style: introduce premium background glow behind active market filters
+
+### Log Entry 10: Category Filter Polish
+- Implemented subtle box-shadow glow using `shadow-cyan-500/25` for active filter button state.
+- Improved overall visibility of current category categories on dark mode.
