@@ -289,3 +289,10 @@ This document tracks the progression of development and performance updates depl
 ### Log Entry 36: Typography Adjustments
 - Changed numeric statistic labels from heavy black to bold (700) for a cleaner institutional look.
 - Adjusted sizes.
+
+---
+
+## Update: docs: clarify staking reward structures and unlocking cooldowns
+
+### Log Entry 37: Staking Documentation
+- Documented token lock times and staking rewards calculation metrics in `DEPLOYMENT_INFO.md`.
