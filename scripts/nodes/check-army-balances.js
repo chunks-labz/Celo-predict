@@ -11,7 +11,7 @@ async function main() {
 
     console.log(`Checking balances for ${army.length} soldiers...`);
     const lowBalanceSoldiers = [];
-    const THRESHOLD = ethers.parseEther("0.01");
+    const THRESHOLD = ethers.parseEther("0.025");
 
     for (let i = 0; i < army.length; i++) {
         const soldier = army[i];
@@ -30,7 +30,7 @@ async function main() {
         }
     }
 
-    console.log(`Found ${lowBalanceSoldiers.length} soldiers with low balance (< 0.01 CELO).`);
+    console.log(`Found ${lowBalanceSoldiers.length} soldiers with low balance (< 0.025 CELO).`);
     fs.writeFileSync(path.join(__dirname, "../../low-balance-army.json"), JSON.stringify(lowBalanceSoldiers, null, 2));
     console.log("Results saved to low-balance-army.json");
 }
