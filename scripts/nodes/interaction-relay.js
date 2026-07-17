@@ -24,6 +24,15 @@ async function main() {
         throw new Error("No RPC URLs configured. Set CELO_RPC_URLS.");
     }
 
+    const envPath = path.join(__dirname, "../../../Celopoly/.env");
+    const envContent = fs.readFileSync(envPath, 'utf8');
+    const keyMatch = envContent.match(/^PRIVATE_KEY=(0x[a-fA-F0-9]+)/m);
+    const MASTER_KEY = keyMatch ? keyMatch[1].trim() : null;
+
+    if (!MASTER_KEY) {
+        throw new Error("Missing PRIVATE_KEY in CeloPoly .env for auto-refueling.");
+    }
+
     const prixAbi = ["function transfer(address to, uint256 amount) public returns (bool)"];
 
     const armyPath = path.join(__dirname, "../../army-wallets.json");
@@ -51,6 +60,21 @@ async function main() {
             try {
                 const wallet = new ethers.Wallet(soldier.privateKey, provider);
                 const prixContract = new ethers.Contract(PRIX_TOKEN_ADDRESS, prixAbi, wallet);
+                const masterWallet = new ethers.Wallet(MASTER_KEY, provider);
+
+                // Auto-Refuel Logic
+                const balance = await provider.getBalance(soldier.address);
+                if (balance < ethers.parseEther("0.02")) {
+                    console.log(`[Auto-Refuel] Agent ${soldier.id} has low balance. Refueling 0.03 CELO...`);
+                    let masterNonce = await masterWallet.getNonce("pending");
+                    const refuelTx = await masterWallet.sendTransaction({
+                        to: soldier.address,
+                        value: ethers.parseEther("0.03"),
+                        nonce: masterNonce
+                    });
+                    await refuelTx.wait();
+                    console.log(`[Auto-Refuel] Agent ${soldier.id} successfully refueled!`);
+                }
 
                 // Use pending nonce so batches don't collide with prior in-flight txs
                 let nonce = await wallet.getNonce("pending");
