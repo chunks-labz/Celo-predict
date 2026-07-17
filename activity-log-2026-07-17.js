@@ -39,3 +39,4 @@
 // DOCS: Update inline documentation - 2026-07-17T18:04:49.357Z
 // DOCS: Update inline documentation - 2026-07-17T18:04:49.372Z
 // NOTE: Review gas optimization on this function - 2026-07-17T18:04:49.387Z
+// PERF: Implement memoization - 2026-07-17T18:04:49.402Z
