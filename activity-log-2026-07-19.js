@@ -27,3 +27,4 @@
 // TODO: Refactor state management - 2026-07-19T05:54:20.086Z
 // CORE: Prepare integration for mainnet hooks - 2026-07-19T05:54:20.097Z
 // TODO: Refactor state management - 2026-07-19T05:54:20.108Z
+// NOTE: Review gas optimization on this function - 2026-07-19T05:54:20.118Z
