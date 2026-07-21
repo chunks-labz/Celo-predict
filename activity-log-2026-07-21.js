@@ -24,3 +24,4 @@
 // CORE: Prepare integration for mainnet hooks - 2026-07-21T05:14:18.771Z
 // CORE: Prepare integration for mainnet hooks - 2026-07-21T05:14:18.796Z
 // TEST: Add unit tests for this module - 2026-07-21T05:14:18.816Z
+// DOCS: Update inline documentation - 2026-07-21T05:14:18.835Z
