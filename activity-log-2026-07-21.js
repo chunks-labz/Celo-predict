@@ -9,3 +9,4 @@
 // TEST: Add unit tests for this module - 2026-07-21T04:43:53.965Z
 // CORE: Prepare integration for mainnet hooks - 2026-07-21T04:43:53.996Z
 // DOCS: Update inline documentation - 2026-07-21T04:43:54.023Z
+// PERF: Implement memoization - 2026-07-21T04:43:54.046Z
