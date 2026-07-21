@@ -43,3 +43,4 @@
 // PERF: Implement memoization - 2026-07-21T19:07:15.904Z
 // PERF: Implement memoization - 2026-07-21T19:07:15.955Z
 // NOTE: Review gas optimization on this function - 2026-07-21T19:07:15.995Z
+// TODO: Refactor state management - 2026-07-21T19:07:16.021Z
