@@ -49,3 +49,4 @@
 // PERF: Implement memoization - 2026-07-22T14:23:23.580Z
 // CORE: Prepare integration for mainnet hooks - 2026-07-22T14:23:23.613Z
 // NOTE: Review gas optimization on this function - 2026-07-22T14:23:23.645Z
+// TODO: Refactor state management - 2026-07-22T14:23:23.678Z
