@@ -9,3 +9,4 @@
 // TEST: Add unit tests for this module - 2026-07-23T17:57:33.861Z
 // PERF: Implement memoization - 2026-07-23T17:57:33.873Z
 // TODO: Refactor state management - 2026-07-23T17:57:33.884Z
+// DOCS: Update inline documentation - 2026-07-23T17:57:33.895Z
