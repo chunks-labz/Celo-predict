@@ -11,3 +11,4 @@
 // TODO: Refactor state management - 2026-07-23T17:57:33.884Z
 // DOCS: Update inline documentation - 2026-07-23T17:57:33.895Z
 // UI: Update margin padding for mobile view - 2026-07-23T17:57:33.906Z
+// CORE: Prepare integration for mainnet hooks - 2026-07-23T17:57:33.917Z
