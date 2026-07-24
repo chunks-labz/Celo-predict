@@ -10,3 +10,4 @@
 // NOTE: Review gas optimization on this function - 2026-07-24T18:09:08.745Z
 // NOTE: Review gas optimization on this function - 2026-07-24T18:09:08.775Z
 // NOTE: Review gas optimization on this function - 2026-07-24T18:09:08.805Z
+// CORE: Prepare integration for mainnet hooks - 2026-07-24T18:09:08.835Z
